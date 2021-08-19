@@ -1,0 +1,38 @@
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link href="css.css" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">   
+        <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> 
+        <title>Cadastro</title>
+    </head>
+    <body id="cadastrobody" class="text-center">
+        <form class="form-signup" action="/cadastrar" method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Cadastro</h1>
+            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario">
+            <input type="text" id="senha" name="senha" class="form-control" placeholder="Senha">
+            <select class="form-control" name="perfil" id="perfil">
+                <option value="U">Usuario</option>
+                <option value="A">Administrador</option>
+            </select>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Avançar</button>
+        </form>
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Perfil</th>
+                    <th>Deletar</th>
+                </tr>
+                <% for(var i = 0; i < usuarios.length; i++) {%>
+                    <tr>
+                        <td><%= usuarios[i].usuario%></td>
+                        <td><%= usuarios[i].perfil%></td>
+                        <td><a href="/removerUser?id_user=<%= usuarios[i]._id%>">Deletar</a></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </body>
+</html>

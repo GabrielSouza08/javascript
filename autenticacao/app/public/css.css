@@ -1,0 +1,82 @@
+html,
+#indexbody {
+    height: 100%;
+}
+/* index */
+#indexbody {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-sign {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+    .form-sign .checkbox {
+        font-weight: 400;
+    }
+
+    .form-sign  .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+
+    .form-sign input {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+/* cadastro */
+
+#cadastrobody {
+    
+    
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-signup {
+    
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    margin-left: 0px;
+}
+
+    .form-signup .checkbox {
+        font-weight: 400;
+    }
+
+    .form-signup  .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+
+    .form-signup input {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+#perfil {
+    margin-bottom: 10px;
+}
