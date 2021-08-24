@@ -1,5 +1,5 @@
-var crypto = require("crypto");
-var ObjectID = require("mongodb").ObjectID;
+const crypto = require("crypto");
+const ObjectID = require("mongodb").ObjectID;
 function UsuariosDAO(connection){
 	this._connection = connection();
 	
@@ -7,10 +7,10 @@ function UsuariosDAO(connection){
 
 UsuariosDAO.prototype.inserirUsuario = function(usuario){
 	this._connection.open( function(err, mongoclient){
-		console.log(usuario);
+		
 		mongoclient.collection("usuarios", function(err, collection){
 			
-			var senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
+			let senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
 			usuario.senha = senha_criptografada;
 			collection.insert(usuario);
 			mongoclient.close();
@@ -30,21 +30,21 @@ UsuariosDAO.prototype.autenticar = function(usuario, req, res){
 	
 	this._connection.open( function(err, mongoclient){
 		mongoclient.collection("usuarios", function(err, collection){
-			var senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
+			let senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
 			usuario.senha = senha_criptografada;
 			collection.find(usuario).toArray(function(err, result){
-				console.log(usuario);
+				
 				if(result[0] != undefined){
 					req.session.autorizado = true;
 					req.session.usuario = result[0].usuario;
-					req.session.casa = result[0].casa;
+					req.session.perfil = result[0].perfil;
 					
 				} 
 				if(req.session.autorizado){
 					res.redirect('painel')
 					
 				} else {
-					res.render('index', {validacao: {},dadosForm: usuario})
+					res.render('index', {msg: 'C'})
 				}
 			});
 
@@ -82,13 +82,8 @@ UsuariosDAO.prototype.remover = function(_id,res){
 					mongoclient.close();
 				}
 			);
-			
-			
-			
 		});
 	});
 }
 
-module.exports = function(){
-	return UsuariosDAO;
-}
+module.exports = () => UsuariosDAO;

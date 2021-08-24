@@ -7,7 +7,22 @@
         <title>Autenticação</title>
     </head>
     <body id="indexbody" class="text-center">
- 
+        <% if(msg == 'A') {%>
+            
+                <script>alert('Você não tem autorização, realize o login como administrador para continuar!')</script>
+            
+        <%  } %>
+        <% if(msg == 'B') {%>
+            
+            <script>alert('Preencha todos os campos!')</script>
+        
+        <%  } %>
+        <% if(msg == 'C') {%>
+            
+            <script>alert('Usuário e/ou senha incorretos!')</script>
+        
+        <%  } %>
+
         <form class="form-sign" action="/autenticar" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Autenticação de acesso</h1>
             <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario" >

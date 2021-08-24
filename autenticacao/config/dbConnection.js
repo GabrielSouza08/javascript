@@ -1,10 +1,10 @@
 /* importar o mongodb */
-var Db = require('mongodb').Db;
-var Server = require('mongodb').Server;
+const Db = require('mongodb').Db;
+const Server = require('mongodb').Server;
 
-var connMongoDB = function(){
+const connMongoDB = function(){
 	
-	var db = new Db(
+	const db = new Db(
 		'crm',
 		new Server(
 			'localhost', //string contendo o endereço do servidor
@@ -17,6 +17,4 @@ var connMongoDB = function(){
 	return db;
 }
 
-module.exports = function(){
-	return connMongoDB;
-}
+module.exports = () => connMongoDB;
