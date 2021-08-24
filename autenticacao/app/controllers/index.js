@@ -16,7 +16,7 @@ module.exports.autenticar = function(application, req, res){
 	 let erros = req.validationErrors();
 
 	
-	console.log(dobro(2))
+	
 	 if(erros){
 	 	res.render('index', {msg: 'B'});
 	 	return;
