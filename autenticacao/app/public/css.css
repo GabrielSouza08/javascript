@@ -2,6 +2,8 @@ html,
 #indexbody {
     height: 100%;
 }
+
+
 /* index */
 #indexbody {
     display: -ms-flexbox;
@@ -56,7 +58,10 @@ html,
     padding: 15px;
     margin: auto;
     margin-left: 0px;
+    border: 3;
+    border-color: 5;
 }
+
 
     .form-signup .checkbox {
         font-weight: 400;
